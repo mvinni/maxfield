@@ -19,7 +19,7 @@ def try_reduce_out_degree(a,p):
     # Reverse as many edges out-edges of p as possible
     toremove = []
     for q in a.edge[p]:
-        if a.out_degree(q) < 8:
+        if a.out_degree(q) < 8 and a.edge[p][q]['reversible']:
             a.add_edge(q,p)
             a.edge[q][p] = a.edge[p][q]
             toremove.append(q)
